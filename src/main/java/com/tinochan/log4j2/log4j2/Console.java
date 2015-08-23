@@ -11,10 +11,9 @@ public class Console {
  
     public static void main(final String... args) {
  
-        // Set up a simple configuration that logs on the console as 
-    	// we haven't created a configuration file yet.
-    	// By default Log4j assigns the root logger to Level.ERROE.
-    	// So the two trace messages will not be logged.
+        // All 3 log messaged will be logged
+    	// after creating a configuration file and set
+    	// the root logger level to TRACE. 
         logger.trace("Entering application.");
         logger.error("Error happened!");
         logger.trace("Exiting application.");
