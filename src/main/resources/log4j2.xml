@@ -6,8 +6,11 @@
     </Console>
   </Appenders>
   <Loggers>
-    <Root level="TRACE">
-      <AppenderRef ref="Console"/>
+    <Root level="ERROR">
+    	<AppenderRef ref="Console"/>
     </Root>
+    <Logger name="com.tinochan.log4j2.log4j2.Console2" level="TRACE">
+    	<AppenderRef ref="Console"/>
+    </Logger>
   </Loggers>
 </Configuration>

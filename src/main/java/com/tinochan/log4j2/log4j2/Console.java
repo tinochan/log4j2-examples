@@ -11,11 +11,14 @@ public class Console {
  
     public static void main(final String... args) {
  
-        // All 3 log messaged will be logged
+        // Only 1 log message with Level.ERROR will be logged
     	// after creating a configuration file and set
-    	// the root logger level to TRACE. 
+    	// the root logger level to Error.
         logger.trace("Entering application.");
-        logger.error("Error happened!");
+        Console2 console2 = new Console2();
+        if(console2.logIt()){
+        	logger.error("Error happened!");
+        }
         logger.trace("Exiting application.");
     }
 }
