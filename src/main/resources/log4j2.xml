@@ -4,6 +4,9 @@
     <Console name="Console" target="SYSTEM_OUT">
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
     </Console>
+    <File name="MyFileAppender" fileName="logs/app.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </File>
   </Appenders>
   <Loggers>
     <Root level="ERROR">
@@ -14,6 +17,9 @@
      -->
     <Logger name="com.tinochan.log4j2.log4j2.Console2" level="TRACE" additivity="false">
     	<AppenderRef ref="Console"/>
+    </Logger>
+    <Logger name="com.tinochan.log4j2.log4j2.File" level="TRACE">
+    	<AppenderRef ref="MyFileAppender"/>
     </Logger>
   </Loggers>
 </Configuration>

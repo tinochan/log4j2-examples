@@ -17,7 +17,11 @@ public class Console {
         logger.trace("Entering application.");
         Console2 console2 = new Console2();
         if(console2.logIt()){
-        	logger.error("Error happened!");
+        	logger.error("Error happened in {}!", "Console2");
+        }
+        File file = new File();
+        if(file.logIt()){
+        	logger.error("Error happened in {}!", "File");
         }
         logger.trace("Exiting application.");
     }
