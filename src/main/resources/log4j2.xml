@@ -9,7 +9,10 @@
     <Root level="ERROR">
     	<AppenderRef ref="Console"/>
     </Root>
-    <Logger name="com.tinochan.log4j2.log4j2.Console2" level="TRACE">
+    <!-- To disable the Additivity behavior as in 1.2, 
+    	 add additivity="false" to the Logger
+     -->
+    <Logger name="com.tinochan.log4j2.log4j2.Console2" level="TRACE" additivity="false">
     	<AppenderRef ref="Console"/>
     </Logger>
   </Loggers>
