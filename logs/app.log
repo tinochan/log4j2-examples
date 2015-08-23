@@ -1,6 +1,0 @@
-16:49:48.594 [main] TRACE com.tinochan.log4j2.log4j2.File - entry
-16:49:48.594 [main] ERROR com.tinochan.log4j2.log4j2.File - Logging...
-16:49:48.594 [main] TRACE com.tinochan.log4j2.log4j2.File - exit with(true)
-16:50:42.178 [main] TRACE com.tinochan.log4j2.log4j2.File - entry
-16:50:42.179 [main] ERROR com.tinochan.log4j2.log4j2.File - Logging...
-16:50:42.179 [main] TRACE com.tinochan.log4j2.log4j2.File - exit with(true)

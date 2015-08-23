@@ -5,7 +5,7 @@
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
     </Console>
     <File name="MyFileAppender" fileName="logs/app.log">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} - %msg%n"/>
     </File>
   </Appenders>
   <Loggers>
@@ -18,7 +18,11 @@
     <Logger name="com.tinochan.log4j2.log4j2.Console2" level="TRACE" additivity="false">
     	<AppenderRef ref="Console"/>
     </Logger>
-    <Logger name="com.tinochan.log4j2.log4j2.File" level="TRACE">
+    <!--  Since this logger will be shared by different classes
+    	  later on. We need to add the class information in the MyFileAppender
+    	  to indicate the source which initiated the log event.
+     -->
+    <Logger name="MyFileLogger" level="TRACE">
     	<AppenderRef ref="MyFileAppender"/>
     </Logger>
   </Loggers>

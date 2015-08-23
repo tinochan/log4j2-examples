@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 
 public class File {
 	
-	  private static final Logger logger = LogManager.getLogger(File.class.getName());
+	  private static final Logger logger = LogManager.getLogger("MyFileLogger");
 	 
 	  //The below messages will be logged in console
 	  //and logged in file logs/app.log 

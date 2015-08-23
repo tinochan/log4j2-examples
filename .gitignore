@@ -3,6 +3,7 @@
 
 # generated files
 target/
+logs/
 
 # Local configuration file (sdk path, etc)
 local.properties
