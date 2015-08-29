@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
+
   <Appenders>
     <Console name="Console" target="SYSTEM_OUT">
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
@@ -7,7 +8,29 @@
     <File name="MyFileAppender" fileName="logs/app.log">
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} - %msg%n"/>
     </File>
+    
+    <!-- How often a rollover should occur is based on the most specific time 
+    	 unit in the date pattern. In this case is minute.
+    -->
+    <RollingFile name="MyRollingFileAppenderByTime" fileName="logs/timeBasedLog.log" 
+    			filePattern="logs/timeBasedLog-%d{yyyyMMdd_HHmm}.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} - %msg%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+    <!-- Fixed Window strategy, if fileIndex set to "max"(the default), files with 
+    	 a higher index will be newer than files with a smaller index. -->
+    <RollingFile name="MyRollingFileAppenderBySize" fileName="logs/sizeBasedLog.log" filePattern="logs/sizeBasedLog-%i.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} %class{36} - %msg%n"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="1 KB"/>
+      </Policies>
+      <DefaultRolloverStrategy fileIndex="min" min="1" max="10"/>
+    </RollingFile>
   </Appenders>
+  
+  
   <Loggers>
     <Root level="ERROR">
     	<AppenderRef ref="Console"/>
@@ -25,5 +48,10 @@
     <Logger name="MyFileLogger" level="TRACE">
     	<AppenderRef ref="MyFileAppender"/>
     </Logger>
+    <Logger name="MyRollingFileLogger" level="TRACE" additivity="false">
+    	<AppenderRef ref="MyRollingFileAppenderByTime"/>
+    	<AppenderRef ref="MyRollingFileAppenderBySize"/>
+    </Logger>
   </Loggers>
+  
 </Configuration>
